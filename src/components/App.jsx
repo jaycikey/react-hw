@@ -1,12 +1,20 @@
-import pilots from '../pilots.json';
-import { PageTitle } from './PageTitle';
-import { PilotsList } from './PilotsList';
+import { Alert } from "./Alert";
 
 export const App = () => {
   return (
-    <div>
-      <PageTitle text = "Best pilots!" />
-      <PilotsList items = {pilots} />
-    </div>
+    <>
+      <Alert variant="info">
+        Would you like to browse our recommended products?
+      </Alert>
+      <Alert variant="error">
+        There was an error during your last transaction
+      </Alert>
+      <Alert variant="success" outlined="true">
+        Payment received, thank you for your purchase
+      </Alert>
+      <Alert variant="warning" elevated="true">
+        Please update your profile contact information
+      </Alert>
+    </>
   );
 };
