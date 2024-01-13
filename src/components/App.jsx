@@ -1,9 +1,11 @@
-import { Alert } from "./Alert";
-import { className } from "./Clsx";
+import { Alert } from './Alert';
+import { className } from './Clsx';
+import { UserMenu } from './UserMenu';
 
 export const App = () => {
   return (
-    <>
+    <div>
+      <h2>Allerts</h2>
       <Alert variant="info">
         Would you like to browse our recommended products?
       </Alert>
@@ -16,8 +18,9 @@ export const App = () => {
       <Alert variant="warning" elevated="true">
         Please update your profile contact information
       </Alert>
-    </>
+      <h2>Icons</h2>
+      <UserMenu name="Connie"/>
+    </div>
   );
 };
 console.log(className);
-
