@@ -1,4 +1,5 @@
 import { Alert } from "./Alert";
+import { className } from "./Clsx";
 
 export const App = () => {
   return (
@@ -18,3 +19,5 @@ export const App = () => {
     </>
   );
 };
+console.log(className);
+
