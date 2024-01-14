@@ -1,0 +1,14 @@
+.profile{
+
+}
+.profile .status{
+color: blue;
+background-color: cyan;
+
+}
+.profile .status.is-active{
+color: green;
+}
+.profile .status.is-retired{
+    color:red;
+}
