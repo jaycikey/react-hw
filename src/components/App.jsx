@@ -1,12 +1,12 @@
 import pilots from '../pilots.json';
-import { PageTitle } from './PageTitle';
-import { PilotsList } from './PilotsList/PilotsList';
+import { PageTitle } from './PageTitle/PageTitle';
+import { PilotList } from './PilotList/PilotList';
 
 export const App = () => {
   return (
     <div>
       <PageTitle text = "Best pilots!" />
-      <PilotsList items = {pilots} />
+      <PilotList items = {pilots} />
     </div>
   );
 };
