@@ -5,8 +5,8 @@ import { PilotList } from './PilotList/PilotList';
 export const App = () => {
   return (
     <div>
-      <PageTitle text = "Best pilots!" />
-      <PilotList items = {pilots} />
+      <PageTitle>Best pilots of our galaxy!</PageTitle>
+      <PilotList items={pilots} />
     </div>
   );
 };
