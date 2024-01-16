@@ -1,12 +1,6 @@
-import pilots from '../pilots.json';
-import { PageTitle } from './PageTitle';
-import { PilotsList } from './PilotsList';
-
 export const App = () => {
-  return (
-    <div>
-      <PageTitle text = "Best pilots!" />
-      <PilotsList items = {pilots} />
-    </div>
-  );
+  const handleClick = () => {
+    alert("I'm a button!");
+  }
+  return <button onClick={handleClick}> Click me!</button>;
 };
