@@ -1,6 +1,3 @@
 export const App = () => {
-  const handleClick = () => {
-    alert("I'm a button!");
-  }
-  return <button onClick={handleClick}> Click me!</button>;
+  return <button onClick={() => alert("I'm a button!")}> Click me!</button>;
 };
