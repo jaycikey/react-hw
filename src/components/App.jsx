@@ -1,22 +1,8 @@
-const CustomButton = ({ message, children}) => {
-  return(
-    <button onClick={() => alert(message)}>
-      {children}
-    </button>
-  )
-}
 export const App = () => {
-  const handleClick = (evt) => {
-    console.log(evt);
+  let clicks = 0;
+
+  const handleClick = () => {
+    clicks = clicks + 1;
   }
-  return (
-    <>
-    <CustomButton message="Plaing music!">
-      Play some music
-    </CustomButton>
-    <CustomButton message="Uploading your data!">
-      Upload data
-    </CustomButton>
-    </>
-  )
+  return <button onClick={handleClick}>Current: {clicks}</button>
 };
