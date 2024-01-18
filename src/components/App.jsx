@@ -1,9 +1,18 @@
 import { useState } from 'react';
 
-const Button = ({value, onUpdate}) => {
+const Clicker = ({ value, onUpdate }) => {
+  const [clicks, setClicks] = useState(0);
   
+  const handleClick = () => {
+    setClicks(clicks + 1);
+  }
 
-  return <button onClick={onUpdate}>Total clicks -  {value}</button>;
+  return (
+    <div>
+      <button onClick={onUpdate}>Total clicks - {value}</button>
+      <button onClick={handleClick}>Update my clicks - {clicks}</button>
+    </div>
+  );
 };
 export const App = () => {
   const [count, setCount] = useState(0);
@@ -15,8 +24,8 @@ export const App = () => {
   return (
     <div>
       <p> Total clicks: {count}</p>
-      <Button value={count} onUpdate={handleClick} />
-      <Button value={count} onUpdate={handleClick} />
+      <Clicker value={count} onUpdate={handleClick} />
+      <Clicker value={count} onUpdate={handleClick} />
     </div>
   );
 };
