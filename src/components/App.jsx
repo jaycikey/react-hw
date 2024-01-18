@@ -1,22 +1,22 @@
 import { useState } from 'react';
 
-const Button = () => {
+const Button = ({value, onUpdate}) => {
+  
+
+  return <button onClick={onUpdate}>Total clicks -  {value}</button>;
+};
+export const App = () => {
   const [count, setCount] = useState(0);
 
   const handleClick = () => {
     setCount(count + 1);
   };
 
-  return <button onClick={handleClick}>Total clicks -  {count}</button>;
-};
-export const App = () => {
- 
-
   return (
     <div>
-      <Button />
-      <Button />
-      <Button />
+      <p> Total clicks: {count}</p>
+      <Button value={count} onUpdate={handleClick} />
+      <Button value={count} onUpdate={handleClick} />
     </div>
   );
 };
