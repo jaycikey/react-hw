@@ -21,11 +21,21 @@ export const App = () => {
     setCount(count + 1);
   };
 
+  const [user, setUser] = useState({
+    userName: 'Mango',
+    age: 2,
+    isOnline: true,
+  });
+  const changeUser = () => {
+setUser({...user,age: 3})
+  }
+
   return (
     <div>
       <p> Total clicks: {count}</p>
       <Clicker value={count} onUpdate={handleClick} />
       <Clicker value={count} onUpdate={handleClick} />
+      <button onClick={changeUser}>Change User</button>
     </div>
   );
 };
