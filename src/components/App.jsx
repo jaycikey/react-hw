@@ -1,12 +1,14 @@
-import pilots from '../pilots.json';
-import { PageTitle } from './PageTitle';
-import { PilotsList } from './PilotsList';
 
 export const App = () => {
+  const handleClick = () => {
+    console.log(Date.now());
+  }
+  const handleEnter = (evt) => {
+    console.log(evt)
+  }
   return (
     <div>
-      <PageTitle text = "Best pilots!" />
-      <PilotsList items = {pilots} />
+      <button onClick={handleClick} onMouseEnter={handleEnter}>Click me!</button>
     </div>
   );
 };
