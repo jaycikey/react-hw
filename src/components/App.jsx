@@ -1,14 +1,13 @@
+import { useState } from "react";
 
 export const App = () => {
+  const [count, setCount] = useState(0);
   const handleClick = () => {
-    console.log(Date.now());
-  }
-  const handleEnter = (evt) => {
-    console.log(evt)
+    setCount(count + 1);
   }
   return (
     <div>
-      <button onClick={handleClick} onMouseEnter={handleEnter}>Click me!</button>
+      <button onClick={handleClick}>Click me! - {count}</button>
     </div>
   );
 };
