@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-export const App = () => {
+const Button = () => {
   const [count, setCount] = useState(0);
+
   const handleClick = () => {
     setCount(count + 1);
-  }
+  };
+
+  return <button onClick={handleClick}>Total clicks -  {count}</button>;
+};
+export const App = () => {
+ 
+
   return (
     <div>
-      <button onClick={handleClick}>Click me! - {count}</button>
+      <Button />
+      <Button />
+      <Button />
     </div>
   );
 };
