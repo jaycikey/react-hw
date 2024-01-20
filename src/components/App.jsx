@@ -2,27 +2,25 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 export const App = () => {
-  const [clicks, setClicks] = useState(0);
+  const [firts, setFirts] = useState(0);
+  const [second, setSecond] = useState(0);
 
   useEffect(() => {
-    console.log('You caln see me only once!');
-  });
+    console.log('Firts update: ', firts);
+  }, [firts]);
 
-  useEffect(() => {
-    console.log('Clicks update: ', clicks);
-  }, [clicks]);
+  useEffect(()=> {
+    console.log("Second update: ", second);
+  }, [second])
 
-  useEffect(() => {
-    document.title = `You clicked ${clicks} times`;
-  });
-  
+  useEffect(()=>{
+    console.log("Firts or second update: ", firts + second)
+  }, [firts, second])
+
   return (
-    <button
-      onClick={() => {
-        setClicks(clicks + 1);
-      }}
-    >
-      You clicked {clicks} times
-    </button>
+    <>
+    <button onClick={() => setFirts(firts + 1)}> Firts: {firts}</button>
+    <button onClick={() => setSecond(second + 1)}> Second: {second}</button>
+    </>
   );
 };
