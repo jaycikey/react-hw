@@ -1,16 +1,23 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-export const App = () => {
-  const [clicks, setClicks] = useState(0);
+const Modal = () => {
   useEffect(() => {
-    document.title = `You clicked ${clicks} time`;
+    setInterval(() => {
+      console.log(`Interval - ${Date.now()}`);
+    }, 2000);
   }, []);
+  return <div>Modal</div>;
+};
+export const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <button onClick={() => setClicks(clicks + 1)}>
-      {' '}
-      You clicked {clicks} times
-    </button>
+    <div>
+      <button onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? 'Close' : 'Open'}
+      </button>
+      {isOpen && <Modal />}
+    </div>
   );
 };
