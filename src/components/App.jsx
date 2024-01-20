@@ -5,7 +5,7 @@ export const App = () => {
   const [clicks, setClicks] = useState(0);
   useEffect(() => {
     document.title = `You clicked ${clicks} time`;
-  });
+  }, []);
 
   return (
     <button onClick={() => setClicks(clicks + 1)}>
