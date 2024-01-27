@@ -7,9 +7,6 @@ import { RadioSelect } from './RadioSelect';
 import { Checkbox } from './Checkbox';
 
 export const App = () => {
-  const handleLogin = userData => {
-    console.log(userData);
-  };
 
   const [lang, setLang] = useState('uk');
   const [coffeeSize, setCoffeeSize] = useState('sm');
@@ -17,7 +14,7 @@ export const App = () => {
   return (
     <div>
       <h1>Please login to your account!</h1>
-      <LoginForm onSubmit={handleLogin} />
+      <LoginForm />
       <Mycomponent />
       <SearchBar />
       <p>Selected language: {lang}</p>
