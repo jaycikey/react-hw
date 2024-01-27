@@ -1,4 +1,9 @@
+import { useId } from "react";
+
 export const LoginForm = ({ onSubmit }) => {
+  const loginId = useId();
+  const passwordId = useId();
+
   const handleSubmit = evt => {
     evt.preventDefault();
 
@@ -14,8 +19,12 @@ export const LoginForm = ({ onSubmit }) => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="login" />
-      <input type="password" name="password" />
+        <label htmlFor={loginId}>Login</label>
+      <input type="text" name="login" id={loginId}/>
+
+      <label htmlFor={passwordId}>Password</label>
+      <input type="password" name="password" id={passwordId}/>
+      
       <button type="submit">Log in</button>
     </form>
   );

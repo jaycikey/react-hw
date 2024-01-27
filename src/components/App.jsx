@@ -1,4 +1,5 @@
 import { LoginForm } from './LoginForm';
+import { Mycomponent } from './MyComponent';
 
 export const App = () => {
   const handleLogin = userData => {
@@ -8,6 +9,7 @@ export const App = () => {
     <div>
       <h1>Please login to your account!</h1>
       <LoginForm onSubmit={handleLogin}/>
+      <Mycomponent />
     </div>
   );
 };
