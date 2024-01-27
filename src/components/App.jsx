@@ -1,12 +1,9 @@
-import pilots from '../pilots.json';
-import { PageTitle } from './PageTitle';
-import { PilotsList } from './PilotsList';
+import { LoginForm } from './LoginForm';
 
 export const App = () => {
   return (
     <div>
-      <PageTitle text = "Best pilots!" />
-      <PilotsList items = {pilots} />
+      <LoginForm />
     </div>
   );
 };
