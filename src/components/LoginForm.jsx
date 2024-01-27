@@ -1,7 +1,15 @@
 export const LoginForm = () => {
   const handleSubmit = evt => {
     evt.preventDefault();
-    console.log(evt);
+
+    const form = evt.target;
+    const { login, password } = form.elements;
+
+    console.log(login, password);
+
+    console.log(login.value, password.value);
+    
+    form.reset();
   };
   return (
     <form onSubmit={handleSubmit}>
