@@ -1,5 +1,6 @@
 import { LoginForm } from './LoginForm';
 import { Mycomponent } from './MyComponent';
+import { SearchBar } from './SearchBar';
 
 export const App = () => {
   const handleLogin = userData => {
@@ -7,9 +8,10 @@ export const App = () => {
   };
   return (
     <div>
-      <h1>Please login to your account!</h1>
+      {/* <h1>Please login to your account!</h1>
       <LoginForm onSubmit={handleLogin}/>
-      <Mycomponent />
+      <Mycomponent /> */}
+      <SearchBar/>
     </div>
   );
 };
