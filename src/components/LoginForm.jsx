@@ -1,14 +1,15 @@
-export const LoginForm = () => {
+export const LoginForm = ({ onSubmit }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
 
     const form = evt.target;
     const { login, password } = form.elements;
 
-    console.log(login, password);
+    onSubmit({
+      login: login.value,
+      password: password.value,
+    });
 
-    console.log(login.value, password.value);
-    
     form.reset();
   };
   return (
