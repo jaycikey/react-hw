@@ -34,7 +34,6 @@ export const App = () => {
   return (
     <>
       <UserForm onAdd={addUser} />
-      <hr />
       <Filter value={nameFilter} onChange={setnameFilter} />
       <Users items={visibleUsers} onDelete={deleteUser} />
     </>
