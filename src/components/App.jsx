@@ -1,5 +1,13 @@
-import { Player } from './Player';
+import { forwardRef, useRef, useEffect } from 'react';
+
+const CustomButton = forwardRef((props, ref) => (
+  <button ref={ref}>{props.children}</button>
+));
 
 export const App = () => {
-  return <Player source={'http://media.w3.org/2010/05/sintel/trailer.mp4'} />;
+  const btnRef = useRef();
+
+  useEffect(() => btnRef.current.focus(), []);
+
+  return <CustomButton ref={btnRef}>Button with forwarded ref</CustomButton>;
 };
