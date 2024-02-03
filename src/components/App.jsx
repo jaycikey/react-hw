@@ -1,13 +1,9 @@
-import { forwardRef, useRef, useEffect } from 'react';
-
-const CustomButton = forwardRef((props, ref) => (
-  <button ref={ref}>{props.children}</button>
-));
+import { UserMenu } from './UserMenu';
 
 export const App = () => {
-  const btnRef = useRef();
-
-  useEffect(() => btnRef.current.focus(), []);
-
-  return <CustomButton ref={btnRef}>Button with forwarded ref</CustomButton>;
+  return (
+    <div>
+      <UserMenu />
+    </div>
+  );
 };
