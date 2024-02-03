@@ -1,26 +1,14 @@
-import { useState } from 'react';
-import { useMemo } from 'react';
+import { useEffect, useRef } from 'react';
 
 export const App = () => {
-  const [planets, setPlanets] = useState(['Earth', 'Mars', 'Jupiter', 'Venus']);
-  const [query, setQuery] = useState('');
-  const [clicks, setClicks] = useState(0);
+  const valuerRef = useRef(0);
 
-  const filteredPlanets = useMemo(
-    () => planets.filter(planet => planet.includes(query)),
-    [planets, query]
-  );
+  useEffect(() => {
+    console.log(valuerRef.current);
+  });
 
-  return (
-    <>
-      <button onClick={() => setClicks(clicks + 1)}>
-        Number of clicks: {clicks}
-      </button>
-      <ul>
-        {filteredPlanets.map(planet => (
-          <li key={planet}>{planet}</li>
-        ))}
-      </ul>
-    </>
-  );
+  const handleClick = () => {
+    valuerRef.current += 1;
+  };
+  return <button onClick={handleClick}>Click to update ref value</button>;
 };
