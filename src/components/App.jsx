@@ -5,6 +5,7 @@ import { ArticleList } from './ArticleList';
 export const App = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setEror] = useState(false);
 
   useEffect(() => {
     async function fetchArticles() {
@@ -16,7 +17,8 @@ export const App = () => {
         );
         setArticles(response.data.hits);
       } catch (error) {
-        //Тут будемо оброляти помилку
+        // Встановлюємо стан error в true
+        setEror(true);
       } finally {
         //2. Встановлюємо індикатор в false після запиту
         setLoading(false);
@@ -28,6 +30,9 @@ export const App = () => {
     <div>
       <h1>Latest articles</h1>
       {loading && <p>Loading data, please wait...</p>}
+      {error && (
+        <p>Whoops, somthing went wrong! Please try reloading this page!</p>
+      )}
       {articles.length > 0 && <ArticleList items={articles} />}
     </div>
   );
