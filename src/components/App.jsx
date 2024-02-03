@@ -1,18 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { fetchArticlesWithTopic } from '../articles-api.js';
 import { ArticleList } from './ArticleList';
+import { SearchForm } from './SearchForm';
+import { Loader } from './Loader.jsx';
+import { Error } from './Error.jsx';
 
 export const App = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  useEffect(() => {
+  const handleSearch = async topic => {
     async function fetchArticles() {
       try {
+        setArticles([]);
+        setError(false);
         setLoading(true);
-        // 2. Використовуємо HTTP-функцію
-        const data = await fetchArticlesWithTopic('react');
+        const data = await fetchArticlesWithTopic(topic);
         setArticles(data);
       } catch (error) {
         setError(true);
@@ -22,15 +26,14 @@ export const App = () => {
     }
 
     fetchArticles();
-  }, []);
+  };
 
   return (
     <div>
       <h1>Latest articles</h1>
-      {loading && <p>Loading data, please wait...</p>}
-      {error && (
-        <p>Whoops, something went wrong! Please try reloading this page!</p>
-      )}
+      <SearchForm onSearch={handleSearch} />
+      {loading && <Loader />}
+      {error && <Error />}
       {articles.length > 0 && <ArticleList items={articles} />}
     </div>
   );
