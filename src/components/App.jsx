@@ -1,12 +1,11 @@
-import pilots from '../pilots.json';
-import { PageTitle } from './PageTitle';
-import { PilotsList } from './PilotsList';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 export const App = () => {
+  useEffect(()=>{}, [])
   return (
     <div>
-      <PageTitle text = "Best pilots!" />
-      <PilotsList items = {pilots} />
+      <h1>Latest articles</h1>
     </div>
   );
 };
