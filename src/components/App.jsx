@@ -1,14 +1,5 @@
-import { useEffect, useRef } from 'react';
+import { Player } from './Player';
 
 export const App = () => {
-  const valuerRef = useRef(0);
-
-  useEffect(() => {
-    console.log(valuerRef.current);
-  });
-
-  const handleClick = () => {
-    valuerRef.current += 1;
-  };
-  return <button onClick={handleClick}>Click to update ref value</button>;
+  return <Player source={'http://media.w3.org/2010/05/sintel/trailer.mp4'} />;
 };
