@@ -1,12 +1,26 @@
-import pilots from '../pilots.json';
-import { PageTitle } from './PageTitle';
-import { PilotsList } from './PilotsList';
+import { useState } from 'react';
+import { useMemo } from 'react';
 
 export const App = () => {
+  const [planets, setPlanets] = useState(['Earth', 'Mars', 'Jupiter', 'Venus']);
+  const [query, setQuery] = useState('');
+  const [clicks, setClicks] = useState(0);
+
+  const filteredPlanets = useMemo(
+    () => planets.filter(planet => planet.includes(query)),
+    [planets, query]
+  );
+
   return (
-    <div>
-      <PageTitle text = "Best pilots!" />
-      <PilotsList items = {pilots} />
-    </div>
+    <>
+      <button onClick={() => setClicks(clicks + 1)}>
+        Number of clicks: {clicks}
+      </button>
+      <ul>
+        {filteredPlanets.map(planet => (
+          <li key={planet}>{planet}</li>
+        ))}
+      </ul>
+    </>
   );
 };
